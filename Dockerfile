@@ -15,6 +15,10 @@ RUN  chmod +x /entrypoint.sh;
 EXPOSE 80
 ENV NUT_HOSTS "MONITOR myups@myserver 'The UPS'"
 
+RUN rm -f /etc/lighttpd/conf-enabled/*-unconfigured.conf && \
+    ln -s /etc/lighttpd/conf-available/*-accesslog.conf /etc/lighttpd/conf-enabled/ && \
+    ln -s /etc/lighttpd/conf-available/*-cgi.conf /etc/lighttpd/conf-enabled/
+    
 RUN sed -i 's|^\(server.document-root.*=\).*|\1 "/usr/share/nut/www"|g' /etc/lighttpd/lighttpd.conf && \
     sed -i '/alias.url/d' /etc/lighttpd/conf-enabled/*-cgi.conf
 
