@@ -1,5 +1,7 @@
 FROM lsiobase/ubuntu:bionic
 
+ENV DEBIAN_FRONTEND noninteractive
+
 RUN apt-get update;
 RUN apt-get install --no-install-recommends --yes \
 	lighttpd \
