@@ -1,4 +1,4 @@
-FROM lsiobase/ubuntu:bionic
+FROM lscr.io/linuxserver/baseimage-ubuntu:bionic
 
 ENV DEBIAN_FRONTEND noninteractive
 
