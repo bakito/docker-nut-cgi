@@ -1,10 +1,10 @@
 FROM lscr.io/linuxserver/baseimage-ubuntu:bionic
 
-RUN apt-get update;
-RUN apt-get install --no-install-recommends --yes \
+RUN apt-get update && \
+    apt-get install --no-install-recommends --yes \
 	lighttpd \
-	nut-cgi;
-RUN rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*;
+	nut-cgi && \
+    rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*;
 
 # make backup of nut hosts file, so we can rebuild it each startup
 RUN mv /etc/nut/hosts.conf /etc/nut/hosts.conf.original
