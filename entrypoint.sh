@@ -1,6 +1,6 @@
 #!/bin/sh
 echo "Starting nut-cgi, build date $(cat /build-date.txt)"
-echo "${NUT_HOSTS}"
+echo "${NUT_HOSTS}" | awk '{ print $1" "$2" "$3 }'
 
 # setup list of monitored ups hosts
 cp /etc/nut/hosts.conf.original /etc/nut/hosts.conf
