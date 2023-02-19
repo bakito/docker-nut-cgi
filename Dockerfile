@@ -27,8 +27,6 @@ RUN sed -i 's|^\(server.document-root.*=\).*|\1 "/usr/share/nut/www"|g' /etc/lig
 RUN ln -s /usr/lib/cgi-bin/ /usr/share/nut/www/ && \
     echo "I_HAVE_SECURED_MY_CGI_DIRECTORY" > /etc/nut/upsset.conf
 
-RUN sed -i 's|BGCOLOR="#FFFFFF"|BGCOLOR="#808080"|g' /etc/nut/upsstats.html
-
 ENTRYPOINT ["/entrypoint.sh"]
 
 # set build date
